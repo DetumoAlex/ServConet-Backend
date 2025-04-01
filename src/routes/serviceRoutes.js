@@ -10,5 +10,6 @@ router.delete('/delete/:id', authMiddleware, serviceController.deleteService);
 router.get('/all', serviceController.getAllServices);
 router.get('/:id', serviceController.getSingleService);
 router.post('/create', serviceController.createService);
+router.put('/:id/approve', authMiddleware, authMiddleware.adminOnly, serviceController.approveService);
 
 module.exports = router;

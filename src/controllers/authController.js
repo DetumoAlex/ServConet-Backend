@@ -121,8 +121,10 @@ const mailSender = require('../utils/email-utils');
 
 // Register user
 exports.register = async (req, res) => {
+    console.log('Register route initialized');
     try {
         const { name, email, password, role } = req.body;
+        console.log('Registering user:', { name, email, password, role });
         
         let user = await User.findOne({ email });
         if (user) return res.status(400).json({ message: 'User already exists' });
@@ -171,7 +173,7 @@ exports.getProfile = async (req, res) => {
 // Get all users (Admin only)
 exports.getAllUsers = async (req, res) => {
     try {
-        // if (req.user.role !== 'admin') return res.status(403).json({ message: 'Access denied' });
+        if (req.user.role !== 'admin') return res.status(403).json({ message: 'Access denied' });
 
         const users = await User.find().select('-password');
         res.json(users);

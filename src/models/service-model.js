@@ -8,6 +8,8 @@ const serviceSchema = new mongoose.Schema({
     // image:{type:String, required:true},
     availability:{type:Boolean, default:true},
     provider:{type:mongoose.Schema.Types.ObjectId, ref:"User", required:true},
+    location:{type:String, required:true},
+    approved:String,
     createdAt:{type:Date, default:Date.now},
 }, {collection:"services"})
 

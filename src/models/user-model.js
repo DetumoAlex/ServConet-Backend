@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     name:{type:String, required:true},
     email:{type:String, required:true, unique:true},
     password:{type:String, required:true},
-    role:{type:String, enum:["customer", "provider"], required:true},
+    role:{type:String, enum:["customer", "provider", "admin"], required:true},
     servicesOffered:[{type:mongoose.Schema.Types.ObjectId, ref:"Service"}],
     servicesBooked:[{type:mongoose.Schema.Types.ObjectId, ref:"Service"}],
     reviews:[{type:mongoose.Schema.Types.ObjectId, ref:"Review"}]
@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
 
 // Remove servicesOffered if the user is a customer
 userSchema.pre("save", async function (next) {
-    if (this.role === "customer") {
+    if (this.role === "customer, admin") {
       this.servicesOffered = undefined;
       this.reviews = undefined; // Removes the field before saving
     } else if (this.role ==="provider"){
