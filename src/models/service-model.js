@@ -9,7 +9,7 @@ const serviceSchema = new mongoose.Schema({
     availability:{type:Boolean, default:true},
     provider:{type:mongoose.Schema.Types.ObjectId, ref:"User", required:true},
     location:{type:String, required:true},
-    approved:String,
+    approved:{type:Boolean, default:false},
     createdAt:{type:Date, default:Date.now},
 }, {collection:"services"})
 

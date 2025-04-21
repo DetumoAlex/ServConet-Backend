@@ -6,6 +6,8 @@ const http = require('http');
 const connectDB = require('./src/config/db');
 const path = require('path');
 const { initiateSocket } = require('./src/controllers/socketController');
+const { redisClient } = require("./src/services/redis-service");
+
 
 const app = express();
 connectDB()
@@ -32,8 +34,15 @@ app.get('/', (req, res) => {
   res.send('Service App API is running');
 });
 
+// Verify Redis connection
+redisClient
+  .ping()
+  .then((result) => console.log("✅ Redis Ping Response:", result))
+  .catch((err) => console.error("❌ Redis Ping Failed:", err));
+
+
 // Start Server
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5050;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 

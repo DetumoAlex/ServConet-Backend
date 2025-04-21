@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Welcome to Our App</title>
+    <style>
+      body {
+        font-family: Poppins, sans-serif;
+        background-color: #c5c5c5;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: auto;
+        background: #fff;
+      }
+
+      ul > li {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <div>
+        <div style="padding: 30px 40px">
+          <img
+            src="https://res.cloudinary.com/dol3qacrp/image/upload/v1742553157/i9jz5lshsbkvpolabzlm.png"
+            alt="servconet Logo"
+          />
+        </div>
+        <div>
+          <img
+            src="https://res.cloudinary.com/dol3qacrp/image/upload/v1742387783/image_4_zqlwiu.jpg"
+            alt="Welcome Image"
+            width="600px"
+          />
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div style="padding: 10px 40px">
+        <h2 style="font-size: 20px; font-weight: 500; color: #1e3c3c">
+          Verify Your Email for ServConet
+        </h2>
+        <h4 style="font-size: 14px; font-weight: 400">Hello <%= fullName %>,</h4>
+        <div style="font-size: 14px; font-weight: 400; color: #3c4049">
+          <p style="line-height: 20px">
+            Welcome to servconet! To get started, please verify your email
+            address using the OTP below:
+          </p>
+
+          <div style="padding: 10px; background: #f8f8f8">
+            <p style="font-size: 16px; font-weight: 500; color: #001b4d">
+              <%= otp %>
+            </p>
+          </div>
+
+          <div style="margin: 20px 0px;">
+            <p>Expires in <span style="color: #D4112C;"><%= expiration %> mins.</span></p>
+          </div>
+
+          <div>
+            <p style="line-height: 20px;">
+              If you didn’t request this, please ignore this email or contact us at 
+              <a href="mailto:support@payqwicker.com" style="color: #3c4049;">support@servconet.com</a>
+            </p>
+          </div>
+          <hr style="margin: 30px 0px; border: 1px solid #f1f1f1" />
+          <p style="color: #5c6370">
+            Have questions? We’re here to help! <br />
+            Check out our help center or contact us.
+          </p>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer style="padding: 40px; background: #f8f8f8; color: #5c6370">
+        <div style="display: flex; gap: 10px">
+          <i class="fa-brands fa-linkedin"></i>
+          <i class="fa-brands fa-x-twitter"></i>
+        </div>
+        <p style="font-size: 14px; font-weight: 400; margin-top: 20px">
+          Copyright &copy; <%= new Date().getFullYear() %> ServConet. All rights reserved.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
